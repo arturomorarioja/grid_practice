@@ -10,103 +10,117 @@ body {
     font-family: var(--fontMain);
     color: var(--colorMain);
     background-color: var(--colorBgMain);
-}
-
-header {
-    font-family: var(--fontHeader);
-}
-
-header, footer {
-    padding: 0.5rem 1rem;
-    text-align: center;
-}
-
-nav {
-    padding: 0.25rem 1rem;
-}
-nav, footer {
-    margin: 0 1rem 0.5rem 1rem;
-    border-top: thin solid var(--colorBgSecondary);
-}
-nav ul {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-}
-nav li {
-    flex: 1 1 auto;
-    list-style-type: none;
-    text-align: center;
-}
-nav a {
-    text-decoration: none;
-    color: var(--colorSecondary);
-}
-
-main {
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    grid-template-areas:
-        "picture shortbio quotes"
-        "videos videos quotes"
-        "comment comment quotes";
-    margin: 0 1rem;    
-}
-@media (min-width: 1280px) {
-    body {
+    /* -- Solution -- */
+    @media (min-width: 1280px) {
         width: 85vw;
         margin-left: auto;
         margin-right: auto;
     }
-}
-main figure {
-    grid-area: picture;
-    margin-bottom: 0.5rem;
-}
-#shortBio {
-    grid-area: shortbio;
-    margin: 0 1rem;
-}
-#shortBio > p {
-    margin-bottom: 1rem;
-}
-main aside {
-    grid-area: quotes;
-    padding: 0 0.5rem;
-    color: var(--colorBgMain);
-    background-color: var(--colorSecondary);
-}
-main aside > article {
-    margin-bottom: 1rem;
-}
-#videos {
-    grid-area: videos;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    overflow: auto;
-    margin-right: 1rem;    
-}
-#videos > iframe {
-    height: 270px;
-    flex: 0 0 480px;
-    margin-right: 1rem;
-}
-#comment {
-    grid-area: comment;
-    margin: 1rem;
-    font-family: var(--fontHeader);
-    font-size: 1.1rem;
-    text-align: center;
-}
+    /* ---- */
 
-img {
-    width: 100%;
-}
-figcaption {
-    font-size: 0.7rem;
-}
+    header {
+        font-family: var(--fontHeader);
+    }
+    
+    header, footer {
+        padding: 0.5rem 1rem;
+        text-align: center;
+    }
+    
+    nav, footer {
+        margin: 0 1rem 0.5rem 1rem;
+        border-top: thin solid var(--colorBgSecondary);
+    }
 
-footer {
-    font-size: 0.8rem;
+    nav {
+        padding: 0.25rem 1rem;
+        ul {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            li {
+                flex: 1 1 auto;
+                list-style-type: none;
+                text-align: center;
+                a {
+                    text-decoration: none;
+                    color: var(--colorSecondary);
+                }
+            }
+        }
+    }
+    
+    main {
+        /* -- Solution -- */
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-areas:
+            "picture shortbio quotes"
+            "videos videos quotes"
+            "comment comment quotes";
+        margin: 0 1rem;    
+        /* ---- */
+        figure {
+            grid-area: picture;     /* -- Solution -- */
+            margin-bottom: 0.5rem;
+        }
+        aside {
+            grid-area: quotes;      /* -- Solution -- */
+            padding: 0 0.5rem;
+            color: var(--colorBgMain);
+            background-color: var(--colorSecondary);
+            > article {
+                margin-bottom: 1rem;
+            }
+        }
+    }    
+    
+    #shortBio {
+        grid-area: shortbio;        /* -- Solution -- */
+        margin: 0 1rem;
+        > p {
+            margin-bottom: 1rem;
+        }
+    }
+
+    #videos {
+        /* -- Solution -- */
+        grid-area: videos;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        overflow: auto;
+        /* ---- */
+        margin-right: 1rem;    
+        > iframe {
+            /* -- Solution -- */
+            height: 270px;
+            flex: 0 0 480px;
+            /* ---- */
+            margin-right: 1rem;
+        }
+    }
+
+    #comment {
+        grid-area: comment;
+        margin: 1rem;
+        font-family: var(--fontHeader);
+        font-size: 1.1rem;
+        text-align: center;
+    }
+    
+    /* -- Solution -- */
+    figure {
+        img {
+            width: 100%;
+        }
+    /* ---- */        
+        figcaption {
+            font-size: 0.7rem;
+        }
+    }
+    
+    footer {
+        font-size: 0.8rem;
+    }
 }
